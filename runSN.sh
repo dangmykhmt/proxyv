@@ -128,8 +128,8 @@ echo "Internal ip = ${IP4}. Exteranl sub for ip6 = ${IP6}. Network interface nam
 
 #echo "How many proxy do you want to create? Example 500"
 #read COUNT
-COUNT=1000
-FIRST_PORT=10000
+COUNT=200
+FIRST_PORT=20000
 LAST_PORT=$(($FIRST_PORT + $COUNT))
 
 gen_data >$WORKDIR/data.txt
