@@ -95,7 +95,7 @@ upload_proxy() {
 }
 gen_data() {
     seq $FIRST_PORT $LAST_PORT | while read port; do
-        echo "thangphi/thangphi/$IP4/$port/$(gen64 $IP6)/$NETWORK_INTERFACE_NAME"
+        echo "dangdang/dangdang/$IP4/$port/$(gen64 $IP6)/$NETWORK_INTERFACE_NAME"
     done
 }
 
@@ -128,7 +128,7 @@ echo "Internal ip = ${IP4}. Exteranl sub for ip6 = ${IP6}. Network interface nam
 
 #echo "How many proxy do you want to create? Example 500"
 #read COUNT
-COUNT=200
+COUNT=400
 FIRST_PORT=20000
 LAST_PORT=$(($FIRST_PORT + $COUNT))
 
