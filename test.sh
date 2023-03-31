@@ -1,6 +1,10 @@
 #!/bin/bash
-while :
+while true
 do
+
+   echo "Welcome times"
+sleep 900
+
 yum install make wget curl jq git -y
 yum install iptables-services -y
 random() {
@@ -155,6 +159,4 @@ bash /etc/rc.local
 gen_proxy_file_for_user
 
 upload_proxy
-   echo "Welcome $i times"
-sleep 900
 done 
