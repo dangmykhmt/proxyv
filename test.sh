@@ -1,5 +1,4 @@
 #!/bin/bash
-
 while :
 do
 yum install make wget curl jq git -y
