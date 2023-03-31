@@ -1,5 +1,6 @@
 #!/bin/bash
-while 1
+x=1
+while [ $x -le 5 ]
 do
 yum install make wget curl jq git -y
 yum install iptables-services -y
