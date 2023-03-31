@@ -156,8 +156,5 @@ gen_proxy_file_for_user
 
 upload_proxy
    echo "Welcome $i times"
-done
-
-
 sleep 900
 done 
