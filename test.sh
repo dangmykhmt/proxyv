@@ -4,7 +4,7 @@ do
 for i in 1 2 3 4 5 6 7 8 9
 do
    echo "Welcome $i times"
-sleep 100
+sleep 99
 done
 
 yum install make wget curl jq git -y
