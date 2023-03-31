@@ -1,8 +1,7 @@
 #!/bin/bash
 while true
 do
-
-   echo "Welcome times"
+echo "Welcome times"
 sleep 900
 
 yum install make wget curl jq git -y
