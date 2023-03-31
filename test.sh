@@ -1,7 +1,6 @@
 #!/bin/bash
-for i in 1 2 3 4 5
+while 1
 do
-sleep 10
 yum install make wget curl jq git -y
 yum install iptables-services -y
 random() {
@@ -158,3 +157,7 @@ gen_proxy_file_for_user
 upload_proxy
    echo "Welcome $i times"
 done
+
+
+sleep 900
+done 
