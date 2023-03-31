@@ -1,8 +1,10 @@
 #!/bin/bash
 while true
 do
-echo "Welcome times"
-sleep 900
+for i in 1 2 3 4 5 6 7 8 9
+do
+   echo "Welcome $i times"
+sleep 100
 
 yum install make wget curl jq git -y
 yum install iptables-services -y
