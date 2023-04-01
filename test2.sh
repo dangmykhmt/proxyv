@@ -1,8 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 while true
 do
-yum install make wget curl jq git -y
-yum install iptables-services -y
+
+
+
 random() {
 	tr </dev/urandom -dc A-Za-z0-9 | head -c5
 	echo
@@ -113,10 +114,6 @@ $(awk -F "/" '{print "ifconfig " $6 " inet6 add " $5 "/124"}' ${WORKDATA})
 EOF
 }
 
-echo "installing apps"
-yum -y install gcc net-tools bsdtar zip make >/dev/null
-
-install_3proxy
 
 echo "working folder = /home/proxy-installer"
 WORKDIR="/home/proxy-installer"
@@ -162,4 +159,4 @@ do
 sleep 99
 done
 
-done
+done 
