@@ -1,14 +1,9 @@
 #!/bin/bash
 while true
 do
-for i in 1 2 3 4 5 6 7 8 9
-do
-   echo "Welcome $i times"
-sleep 99
-done
 
-yum install make wget curl jq git -y
-yum install iptables-services -y
+
+
 random() {
 	tr </dev/urandom -dc A-Za-z0-9 | head -c5
 	echo
@@ -119,10 +114,6 @@ $(awk -F "/" '{print "ifconfig " $6 " inet6 add " $5 "/124"}' ${WORKDATA})
 EOF
 }
 
-echo "installing apps"
-yum -y install gcc net-tools bsdtar zip make >/dev/null
-
-install_3proxy
 
 echo "working folder = /home/proxy-installer"
 WORKDIR="/home/proxy-installer"
@@ -161,4 +152,11 @@ bash /etc/rc.local
 gen_proxy_file_for_user
 
 upload_proxy
+
+for i in 1 2 3 4 5 6 7 8 9
+do
+   echo "Welcome $i times"
+sleep 99
+done
+
 done 
