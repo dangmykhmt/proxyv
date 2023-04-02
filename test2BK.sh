@@ -1,6 +1,5 @@
 #!/bin/sh
-while true
-do
+
 random() {
 	tr </dev/urandom -dc A-Za-z0-9 | head -c5
 	echo
@@ -129,10 +128,3 @@ EOF
 bash /etc/rc.local
 
 gen_proxy_file_for_user
-for i in 1 2 3 4 5 6 7 8 9
-do
-   echo "Welcome $i times"
-sleep 99
-done
-
-done
