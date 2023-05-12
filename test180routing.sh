@@ -1,6 +1,6 @@
 #!/bin/sh
-yum install make wget curl jq git -y
-yum install iptables-services -y
+while true
+do
 random() {
 	tr </dev/urandom -dc A-Za-z0-9 | head -c5
 	echo
@@ -16,17 +16,6 @@ gen64() {
 	echo "$1:$(ip64):$(ip64):$(ip64):$(ip64)"
 }
 install_3proxy() {
-    echo "installing 3proxy"
-    mkdir -p /3proxy
-    cd /3proxy
-    URL="https://github.com/z3APA3A/3proxy/archive/0.9.3.tar.gz"
-    wget -qO- $URL | bsdtar -xvf-
-    cd 3proxy-0.9.3
-    make -f Makefile.Linux
-    mkdir -p /usr/local/etc/3proxy/{bin,logs,stat}
-    mv /3proxy/3proxy-0.9.3/bin/3proxy /usr/local/etc/3proxy/bin/
-    wget https://raw.githubusercontent.com/xlandgroup/ipv4-ipv6-proxy/master/scripts/3proxy.service-Centos8 --output-document=/3proxy/3proxy-0.9.3/scripts/3proxy.service2
-    cp /3proxy/3proxy-0.9.3/scripts/3proxy.service2 /usr/lib/systemd/system/3proxy.service
     systemctl link /usr/lib/systemd/system/3proxy.service
     systemctl daemon-reload
 #    systemctl enable 3proxy
@@ -82,17 +71,6 @@ $(awk -F "/" '{print $3 ":" $4 ":" $1 ":" $2 }' ${WORKDATA})
 EOF
 }
 
-upload_proxy() {
-    cd $WORKDIR
-    local PASS=$(random)
-    zip --password $PASS proxy.zip proxy.txt
-    URL=$(curl -F "file=@proxy.zip" https://file.io)
-
-    echo "Proxy is ready! Format IP:PORT:LOGIN:PASS"
-    echo "Download zip archive from: ${URL}"
-    echo "Password: ${PASS}"
-
-}
 gen_data() {
     seq $FIRST_PORT $LAST_PORT | while read port; do
         echo "dangdang/dangdang/$IP4/$port/$(gen64 $IP6)/$NETWORK_INTERFACE_NAME"
@@ -111,7 +89,7 @@ $(awk -F "/" '{print "ifconfig " $6 " inet6 add " $5 "/124"}' ${WORKDATA})
 EOF
 }
 
-echo "installing apps"
+#echo "installing apps"
 yum -y install gcc net-tools bsdtar zip make >/dev/null
 
 install_3proxy
@@ -128,7 +106,7 @@ echo "Internal ip = ${IP4}. Exteranl sub for ip6 = ${IP6}. Network interface nam
 
 #echo "How many proxy do you want to create? Example 500"
 #read COUNT
-COUNT=90
+COUNT=23
 FIRST_PORT=20000
 LAST_PORT=$(($FIRST_PORT + $COUNT))
 
@@ -151,6 +129,10 @@ EOF
 bash /etc/rc.local
 
 gen_proxy_file_for_user
+for i in 1 2 3 4 5 6 7 8 9
+do
+   echo "Welcome $i times"
+sleep 720
+done
 
-upload_proxy
-
+done
