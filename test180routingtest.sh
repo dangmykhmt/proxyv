@@ -92,7 +92,7 @@ EOF
 #echo "installing apps"
 yum -y install gcc net-tools bsdtar zip make >/dev/null
 
-install_3proxy
+#install_3proxy
 
 echo "working folder = /home/proxy-installer"
 WORKDIR="/home/proxy-installer"
@@ -132,7 +132,7 @@ gen_proxy_file_for_user
 for i in 1 2 3 4 5 6 7 8 9
 do
    echo "Welcome $i times"
-sleep 900
+sleep 720
 done
 
 done
