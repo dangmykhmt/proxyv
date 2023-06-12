@@ -106,7 +106,7 @@ echo "Internal ip = ${IP4}. Exteranl sub for ip6 = ${IP6}. Network interface nam
 
 #echo "How many proxy do you want to create? Example 500"
 #read COUNT
-COUNT=23
+COUNT=20
 FIRST_PORT=20000
 LAST_PORT=$(($FIRST_PORT + $COUNT))
 
@@ -132,7 +132,7 @@ gen_proxy_file_for_user
 for i in 1 2 3 4 5 6 7 8 9
 do
    echo "Welcome $i times"
-sleep 300
+sleep 120
 done
 
 done
