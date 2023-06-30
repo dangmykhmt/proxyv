@@ -132,7 +132,7 @@ gen_proxy_file_for_user
 for i in 1 2 3 4 5 6 7 8 9
 do
    echo "Welcome $i times"
-sleep 1440
+sleep 3600
 done
 
 done
