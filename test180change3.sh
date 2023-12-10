@@ -1,4 +1,6 @@
 #!/bin/sh
+while true
+do
 random() {
 	tr </dev/urandom -dc A-Za-z0-9 | head -c5
 	echo
@@ -90,7 +92,7 @@ EOF
 #echo "installing apps"
 yum -y install gcc net-tools bsdtar zip make >/dev/null
 
-install_3proxy
+#install_3proxy
 
 echo "working folder = /home/proxy-installer"
 WORKDIR="/home/proxy-installer"
@@ -104,7 +106,7 @@ echo "Internal ip = ${IP4}. Exteranl sub for ip6 = ${IP6}. Network interface nam
 
 #echo "How many proxy do you want to create? Example 500"
 #read COUNT
-COUNT=90
+COUNT=1000
 FIRST_PORT=20000
 LAST_PORT=$(($FIRST_PORT + $COUNT))
 
@@ -127,3 +129,10 @@ EOF
 bash /etc/rc.local
 
 gen_proxy_file_for_user
+for i in 1 2 3 4 5 6 7 8 9
+do
+   echo "Welcome $i times"
+sleep 2160
+done
+
+done
